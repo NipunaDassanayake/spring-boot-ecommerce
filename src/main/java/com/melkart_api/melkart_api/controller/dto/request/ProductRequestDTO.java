@@ -1,6 +1,9 @@
 package com.melkart_api.melkart_api.controller.dto.request;
 
+import com.melkart_api.melkart_api.model.Status;
 import lombok.Data;
+
+import java.time.LocalDateTime;
 
 @Data
 public class ProductRequestDTO {
@@ -11,6 +14,7 @@ public class ProductRequestDTO {
     private String currency;
     private String websiteUrl;
     private String imageUrl;
-    private String status;
+    private Status status;
     private Long adminId;
+    private LocalDateTime createdAt;
 }

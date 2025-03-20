@@ -1,8 +1,10 @@
 package com.melkart_api.melkart_api.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDateTime;
+@Data
 @Entity
 @Table(name = "products")
 public class Product {
@@ -27,4 +29,9 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "admin_id", nullable = false)
     private Admin admin;
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+    }
 }
