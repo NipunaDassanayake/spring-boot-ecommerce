@@ -8,6 +8,9 @@ public class ProductUpdateRequestDTO {
     private String name;
     private String category;
     private String description;
+    private String brand;
+    private String model;
+    private String sourceCountry;
     private Double price;
     private String currency;
     private String websiteUrl;

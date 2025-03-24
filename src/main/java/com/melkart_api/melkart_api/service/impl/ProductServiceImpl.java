@@ -28,25 +28,25 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product createProduct(ProductRequestDTO productRequestDTO) {
         try {
-
             Admin admin = adminRepository.findById(productRequestDTO.getAdminId())
                     .orElseThrow(() -> new RuntimeException("Admin not found with id: " + productRequestDTO.getAdminId()));
 
             Product product = new Product();
             product.setName(productRequestDTO.getName());
             product.setCategory(productRequestDTO.getCategory());
+            product.setBrand(productRequestDTO.getBrand());
+            product.setModel(productRequestDTO.getModel());
             product.setDescription(productRequestDTO.getDescription());
             product.setPrice(productRequestDTO.getPrice());
             product.setCurrency(productRequestDTO.getCurrency());
             product.setWebsiteUrl(productRequestDTO.getWebsiteUrl());
             product.setImageUrl(productRequestDTO.getImageUrl());
+            product.setSourceCountry(productRequestDTO.getSourceCountry());
             product.setStatus(productRequestDTO.getStatus());
             product.setAdmin(admin);
             product.setCreatedAt(productRequestDTO.getCreatedAt());
 
-
             return productRepository.save(product);
-
 
         } catch (DataAccessException e) {
             logger.error("Failed to create product due to database error: {}", e.getMessage(), e);
@@ -57,7 +57,6 @@ public class ProductServiceImpl implements ProductService {
         }
     }
 
-
     @Override
     public List<ProductResponseDTO> getAllProducts() {
         try {
@@ -67,11 +66,14 @@ public class ProductServiceImpl implements ProductService {
                         ProductResponseDTO productResponseDTO = new ProductResponseDTO();
                         productResponseDTO.setName(product.getName());
                         productResponseDTO.setCategory(product.getCategory());
+                        productResponseDTO.setBrand(product.getBrand());
+                        productResponseDTO.setModel(product.getModel());
                         productResponseDTO.setDescription(product.getDescription());
                         productResponseDTO.setPrice(product.getPrice());
                         productResponseDTO.setCurrency(product.getCurrency());
                         productResponseDTO.setWebsiteUrl(product.getWebsiteUrl());
                         productResponseDTO.setImageUrl(product.getImageUrl());
+                        productResponseDTO.setSourceCountry(product.getSourceCountry());
                         productResponseDTO.setStatus(product.getStatus());
 
                         return productResponseDTO;
@@ -94,15 +96,17 @@ public class ProductServiceImpl implements ProductService {
 
             product.setName(productUpdateRequestDTO.getName());
             product.setCategory(productUpdateRequestDTO.getCategory());
+            product.setBrand(productUpdateRequestDTO.getBrand());
+            product.setModel(productUpdateRequestDTO.getModel());
             product.setDescription(productUpdateRequestDTO.getDescription());
             product.setPrice(productUpdateRequestDTO.getPrice());
             product.setCurrency(productUpdateRequestDTO.getCurrency());
             product.setWebsiteUrl(productUpdateRequestDTO.getWebsiteUrl());
             product.setImageUrl(productUpdateRequestDTO.getImageUrl());
+            product.setSourceCountry(productUpdateRequestDTO.getSourceCountry());
             product.setStatus(productUpdateRequestDTO.getStatus());
+
             return productRepository.save(product);
-
-
 
         } catch (DataAccessException e) {
             logger.error("Failed to update product with id {} due to database error: {}", id, e.getMessage(), e);
@@ -127,7 +131,4 @@ public class ProductServiceImpl implements ProductService {
             throw new RuntimeException("Unexpected error occurred while deleting product", e);
         }
     }
-
-
-
 }

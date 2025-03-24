@@ -2,12 +2,13 @@ package com.melkart_api.melkart_api.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
 @Data
 @Entity
-@Table(name = "products")
-public class Product {
+@Table(name = "new_product_requests")
+public class NewProductRequest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,26 +16,22 @@ public class Product {
 
     private String name;
     private String category;
-    private String brand;
-    private String model;
     private String description;
-    private Double price;
+    private BigDecimal expectedPrice;
     private String currency;
-    private String websiteUrl;
-    private String imageUrl;
     private String sourceCountry;
-    private LocalDateTime createdAt;
-
-    @Enumerated(EnumType.STRING)
-    private Status status;
 
     @ManyToOne
-    @JoinColumn(name = "admin_id", nullable = false)
-    private Admin admin;
+    @JoinColumn(name = "user_id", nullable = false)
+    private User requestedBy;
+
+    @Enumerated(EnumType.STRING)
+    private RequestStatus status;
+
+    private LocalDateTime createdAt;
 
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
-        this.status = Status.ACTIVE;
     }
 }
