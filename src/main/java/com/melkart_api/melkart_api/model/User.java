@@ -1,5 +1,6 @@
 package com.melkart_api.melkart_api.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -20,6 +21,7 @@ public class User {
     private String email;
     private String password;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "requestedBy", cascade = CascadeType.ALL)
     private List<NewProductRequest> productRequests;
 

@@ -7,4 +7,5 @@ import java.util.List;
 public interface NewProductRequestService {
     NewProductRequest createRequest(NewProductRequestDTO newProductRequestDTO);
     List<NewProductRequest> getAllRequests();
+    public NewProductRequest getProductRequestById(Long id);
 }

@@ -27,4 +27,9 @@ public class NewProductRequestController {
     public ResponseEntity<List<NewProductRequest>> getAllProductRequests() {
         return ResponseEntity.ok(newProductRequestService.getAllRequests());
     }
+
+    @GetMapping("/{id}")
+    public NewProductRequest getProductRequestById(@PathVariable Long id){
+        return newProductRequestService.getProductRequestById(id);
+    }
 }

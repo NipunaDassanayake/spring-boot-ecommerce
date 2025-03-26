@@ -41,9 +41,9 @@ public class AdminController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Admin> updateAdmin(@PathVariable Long id, @RequestBody AdminUpdateRequestDTO adminUpdateRequestDTO) {
-         Admin admin1 = adminService.updateAdmin(id, adminUpdateRequestDTO);
-        return ResponseEntity.ok(admin1);
+    public ResponseEntity<String> updateAdmin(@PathVariable Long id, @RequestBody AdminUpdateRequestDTO adminUpdateRequestDTO) {
+        adminService.updateAdmin(id, adminUpdateRequestDTO);
+        return ResponseEntity.ok("admin updated successfully");
     }
     @GetMapping("/{id}")
     public ResponseEntity<GetAdminByIdDTO> getAdminById (@PathVariable Long id){

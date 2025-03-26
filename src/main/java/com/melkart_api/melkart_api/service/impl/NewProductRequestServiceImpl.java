@@ -62,4 +62,21 @@ public class NewProductRequestServiceImpl implements NewProductRequestService {
             throw new RuntimeException("Unexpected error occurred while retrieving all new product requests", e);
         }
     }
+
+    @Override
+    public NewProductRequest getProductRequestById(Long id) {
+        try {
+            return newProductRequestRepository.findById(id)
+                    .orElseThrow(() -> new RuntimeException("New product request not found with id: " + id));
+        } catch (DataAccessException e) {
+            logger.error("Failed to retrieve new product request with id {} due to database error: {}", id, e.getMessage(), e);
+            throw new RuntimeException("Failed to retrieve new product request due to database error", e);
+        } catch (Exception e) {
+            logger.error("Unexpected error occurred while retrieving new product request with id {}: {}", id, e.getMessage(), e);
+            throw new RuntimeException("Unexpected error occurred while retrieving new product request", e);
+        }
+    }
+
+
+
 }
