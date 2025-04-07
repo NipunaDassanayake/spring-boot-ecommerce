@@ -1,9 +1,10 @@
 package com.melkart_api.melkart_api.controller;
 
 import com.melkart_api.melkart_api.controller.dto.request.NewProductRequestDTO;
-import com.melkart_api.melkart_api.controller.dto.request.ProductRequestDTO;
+import com.melkart_api.melkart_api.controller.dto.response.GetAllNewProductResponseDTO;
 import com.melkart_api.melkart_api.model.NewProductRequest;
 import com.melkart_api.melkart_api.service.NewProductRequestService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,15 +18,17 @@ public class NewProductRequestController {
 
     private NewProductRequestService newProductRequestService;
 
+
     @PostMapping
-    public ResponseEntity<NewProductRequest> createProductRequest(@RequestBody NewProductRequestDTO newProductRequestDTO) {
+    public ResponseEntity<String> createRequest(@Valid @RequestBody NewProductRequestDTO newProductRequestDTO) {
         NewProductRequest request = newProductRequestService.createRequest(newProductRequestDTO);
-        return ResponseEntity.ok(request);
+        return ResponseEntity.status(201).body("Product request created successfully!");
     }
 
+
     @GetMapping
-    public ResponseEntity<List<NewProductRequest>> getAllProductRequests() {
-        return ResponseEntity.ok(newProductRequestService.getAllRequests());
+    public ResponseEntity<List<GetAllNewProductResponseDTO>> getAllNewProducts() {
+        return ResponseEntity.ok(newProductRequestService.getAllNewProducts());
     }
 
     @GetMapping("/{id}")

@@ -3,6 +3,7 @@ package com.melkart_api.melkart_api.model;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -15,11 +16,18 @@ public class NewProductRequest {
     private Long id;
 
     private String name;
-    private String category;
     private String description;
     private BigDecimal expectedPrice;
     private String currency;
     private String sourceCountry;
+    private String destinationCountry;
+    private String destinationCity;
+    private String websiteUrl;
+    private Integer quantity;
+    private Boolean withBox;
+    private LocalDateTime createdAt;
+    private LocalDate expectedDeliveryDate;
+
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
@@ -28,10 +36,19 @@ public class NewProductRequest {
     @Enumerated(EnumType.STRING)
     private RequestStatus status;
 
-    private LocalDateTime createdAt;
 
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
+
+        if (expectedDeliveryDate != null && expectedDeliveryDate.isBefore(LocalDate.now())) {
+            throw new IllegalArgumentException("Expected delivery date must be in the future.");
+
     }
+
+
+
+
+    }
+
 }

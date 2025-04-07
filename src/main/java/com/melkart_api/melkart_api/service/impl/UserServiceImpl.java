@@ -1,9 +1,10 @@
 package com.melkart_api.melkart_api.service.impl;
 
+import com.cloudinary.Cloudinary;
 import com.melkart_api.melkart_api.controller.dto.request.UserRequestDTO;
 import com.melkart_api.melkart_api.controller.dto.response.GetAllUsersResponseDTO;
 import com.melkart_api.melkart_api.controller.dto.response.GetUserByIdResponseDTO;
-import com.melkart_api.melkart_api.controller.dto.response.UpdateUserRequestDTO;
+import com.melkart_api.melkart_api.controller.dto.request.UpdateUserRequestDTO;
 import com.melkart_api.melkart_api.exceptions.UserNotFoundException;
 import com.melkart_api.melkart_api.model.User;
 import com.melkart_api.melkart_api.repository.UserRepository;
@@ -16,6 +17,8 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 @Service
 @AllArgsConstructor
@@ -23,6 +26,9 @@ public class UserServiceImpl implements UserService {
 
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
     private UserRepository userRepository;
+    private final Cloudinary cloudinary;
+
+
     @Override
     public void createUser(UserRequestDTO userRequestDTO) {
         User user = new User();
@@ -96,16 +102,26 @@ public class UserServiceImpl implements UserService {
             User user = userRepository.findById(userId)
                     .orElseThrow(() -> new RuntimeException("User not found with ID: " + userId));
 
-            user.setFirstName(updateUserRequestDTO.getFirstName());
-            user.setLastName(updateUserRequestDTO.getLastName());
-            user.setEmail(updateUserRequestDTO.getEmail());
-            user.setPassword(updateUserRequestDTO.getPassword());
-            user.setWalletBalance(updateUserRequestDTO.getWalletBalance());
-            user.setLoyaltyPoints(updateUserRequestDTO.getLoyaltyPoints());
+            if (updateUserRequestDTO.getFirstName() != null) {
+                user.setFirstName(updateUserRequestDTO.getFirstName());
+            }
+            if (updateUserRequestDTO.getEmail() != null) {
+                user.setEmail(updateUserRequestDTO.getEmail());
+            }
+            if (updateUserRequestDTO.getPassword() != null) {
+                user.setPassword(updateUserRequestDTO.getPassword());
+            }
+            if (updateUserRequestDTO.getProfilePic() != null && !updateUserRequestDTO.getProfilePic().isEmpty()) {
+                String profilePicUrl = cloudinary.uploader()
+                        .upload(updateUserRequestDTO.getProfilePic().getBytes(),
+                                Map.of("public_id", UUID.randomUUID().toString()))
+                        .get("url")
+                        .toString();
+                user.setProfilePic(profilePicUrl);
+            }
 
             User updatedUser = userRepository.save(user);
             logger.info("Successfully updated user with ID: {}", userId);
-
             return updatedUser;
 
         } catch (Exception e) {
@@ -113,6 +129,7 @@ public class UserServiceImpl implements UserService {
             throw new RuntimeException("Failed to update user", e);
         }
     }
+
 
     @Override
     public void deleteUser(Long userId) {

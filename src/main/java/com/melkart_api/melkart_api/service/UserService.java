@@ -4,7 +4,7 @@ package com.melkart_api.melkart_api.service;
 import com.melkart_api.melkart_api.controller.dto.request.UserRequestDTO;
 import com.melkart_api.melkart_api.controller.dto.response.GetAllUsersResponseDTO;
 import com.melkart_api.melkart_api.controller.dto.response.GetUserByIdResponseDTO;
-import com.melkart_api.melkart_api.controller.dto.response.UpdateUserRequestDTO;
+import com.melkart_api.melkart_api.controller.dto.request.UpdateUserRequestDTO;
 import com.melkart_api.melkart_api.model.User;
 
 import java.util.List;

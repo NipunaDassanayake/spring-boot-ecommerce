@@ -1,11 +1,9 @@
 package com.melkart_api.melkart_api.controller;
 
 import com.melkart_api.melkart_api.controller.dto.request.UserRequestDTO;
-import com.melkart_api.melkart_api.controller.dto.response.GetAdminByIdDTO;
 import com.melkart_api.melkart_api.controller.dto.response.GetAllUsersResponseDTO;
 import com.melkart_api.melkart_api.controller.dto.response.GetUserByIdResponseDTO;
-import com.melkart_api.melkart_api.controller.dto.response.UpdateUserRequestDTO;
-import com.melkart_api.melkart_api.model.User;
+import com.melkart_api.melkart_api.controller.dto.request.UpdateUserRequestDTO;
 import com.melkart_api.melkart_api.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -45,7 +43,7 @@ public class UserController {
     }
 
     @PutMapping("/{userId}")
-    public ResponseEntity<String> updateUser(@PathVariable Long userId,@RequestBody UpdateUserRequestDTO updateUserRequestDTO)
+    public ResponseEntity<String> updateUser(@PathVariable Long userId,@ModelAttribute  UpdateUserRequestDTO updateUserRequestDTO)
     {
         System.out.println(userId);
         System.out.println(updateUserRequestDTO);

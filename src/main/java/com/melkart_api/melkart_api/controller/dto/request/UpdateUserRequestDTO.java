@@ -1,6 +1,7 @@
-package com.melkart_api.melkart_api.controller.dto.response;
+package com.melkart_api.melkart_api.controller.dto.request;
 
 import lombok.Data;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 
@@ -10,6 +11,7 @@ public class UpdateUserRequestDTO {
     private String firstName;
     private String lastName;
     private String email;
+    private MultipartFile profilePic;
     private String password;
     private BigDecimal walletBalance;
     private Integer loyaltyPoints;

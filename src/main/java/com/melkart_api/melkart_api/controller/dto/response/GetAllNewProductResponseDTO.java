@@ -8,7 +8,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
-@AllArgsConstructor
 public class GetAllNewProductResponseDTO {
 
     private Long id;
@@ -25,6 +24,6 @@ public class GetAllNewProductResponseDTO {
     private LocalDateTime createdAt;
     private LocalDate expectedDeliveryDate;
     private RequestStatus status;
-    private Long userId;  // The user who requested the product
+    private Long userId;
 
 }

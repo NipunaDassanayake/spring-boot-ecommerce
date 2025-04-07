@@ -2,6 +2,9 @@ package com.melkart_api.melkart_api.controller.dto.response;
 
 import com.melkart_api.melkart_api.model.Status;
 import lombok.Data;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @Data
 public class ProductResponseDTO {
@@ -13,7 +16,7 @@ public class ProductResponseDTO {
     private Double price;
     private String currency;
     private String websiteUrl;
-    private String imageUrl;
+    private List<String> imageUrls;  // List of image URLs
     private String sourceCountry;
     private Status status;
 }

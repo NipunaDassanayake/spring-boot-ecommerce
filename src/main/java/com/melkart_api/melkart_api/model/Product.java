@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "products")
@@ -21,7 +24,12 @@ public class Product {
     private Double price;
     private String currency;
     private String websiteUrl;
-    private String imageUrl;
+
+    @ElementCollection
+    @CollectionTable(name = "product_images", joinColumns = @JoinColumn(name = "product_id"))
+    @Column(name = "image_url")
+    private List<String> imageUrls;  // List to store multiple image URLs
+
     private String sourceCountry;
     private LocalDateTime createdAt;
 
