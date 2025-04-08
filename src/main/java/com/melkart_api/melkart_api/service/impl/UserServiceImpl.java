@@ -132,7 +132,7 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public void deleteUser(Long userId) {
+    public void delete(Long userId) {
         try {
             logger.info("Deleting user with ID: {}", userId);
 

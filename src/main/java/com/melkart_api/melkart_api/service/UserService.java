@@ -13,6 +13,6 @@ public interface UserService {
     void createUser(UserRequestDTO userDTO);
     public GetUserByIdResponseDTO getUserById(Long userId);
     List<GetAllUsersResponseDTO> getAllUsers();
-    public void deleteUser(Long userId);
+    public void delete(Long userId);
     User updateUser(Long userId, UpdateUserRequestDTO updateUserRequestDTO);
 }

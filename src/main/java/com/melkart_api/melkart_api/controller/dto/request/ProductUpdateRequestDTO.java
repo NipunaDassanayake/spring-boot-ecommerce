@@ -18,4 +18,5 @@ public class ProductUpdateRequestDTO {
     private String websiteUrl;
     private List<String> imageUrls;  // Change this to handle multiple images
     private Status status;
+    private Long subCategoryId; // <-- Add this to support updating subcategory
 }

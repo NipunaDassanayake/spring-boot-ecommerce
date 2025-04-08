@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -25,10 +24,10 @@ public class Product {
     private String currency;
     private String websiteUrl;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "product_images", joinColumns = @JoinColumn(name = "product_id"))
     @Column(name = "image_url")
-    private List<String> imageUrls;  // List to store multiple image URLs
+    private List<String> imageUrls;
 
     private String sourceCountry;
     private LocalDateTime createdAt;
@@ -39,6 +38,10 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "admin_id", nullable = false)
     private Admin admin;
+
+    @ManyToOne
+    @JoinColumn(name = "sub_category_id")
+    private SubCategory subCategory;
 
     @PrePersist
     protected void onCreate() {

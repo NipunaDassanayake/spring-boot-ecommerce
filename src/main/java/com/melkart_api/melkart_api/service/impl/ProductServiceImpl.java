@@ -4,11 +4,10 @@ import com.cloudinary.Cloudinary;
 import com.melkart_api.melkart_api.controller.dto.request.ProductRequestDTO;
 import com.melkart_api.melkart_api.controller.dto.request.ProductUpdateRequestDTO;
 import com.melkart_api.melkart_api.controller.dto.response.ProductResponseDTO;
-import com.melkart_api.melkart_api.model.Admin;
-import com.melkart_api.melkart_api.model.Product;
-import com.melkart_api.melkart_api.model.Status;
+import com.melkart_api.melkart_api.model.*;
 import com.melkart_api.melkart_api.repository.AdminRepository;
 import com.melkart_api.melkart_api.repository.ProductRepository;
+import com.melkart_api.melkart_api.repository.SubCategoryRepository;
 import com.melkart_api.melkart_api.service.ProductService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
@@ -28,6 +27,7 @@ public class ProductServiceImpl implements ProductService {
     private static final Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
     private final ProductRepository productRepository;
     private final AdminRepository adminRepository;
+    private final SubCategoryRepository subCategoryRepository;
     private final Cloudinary cloudinary;
 
     @Override
@@ -37,15 +37,17 @@ public class ProductServiceImpl implements ProductService {
         Admin admin = adminRepository.findById(productRequestDTO.getAdminId())
                 .orElseThrow(() -> new RuntimeException("Admin not found with id: " + productRequestDTO.getAdminId()));
 
+        SubCategory subCategory = subCategoryRepository.findById(productRequestDTO.getSubCategoryId())
+                .orElseThrow(() -> new RuntimeException("SubCategory not found with id: " + productRequestDTO.getSubCategoryId()));
+        System.out.println(subCategory);
         List<String> imageUrls = new ArrayList<>();
         if (productRequestDTO.getImageUrls() != null && !productRequestDTO.getImageUrls().isEmpty()) {
             for (MultipartFile image : productRequestDTO.getImageUrls()) {
                 try {
-                    // Upload image to Cloudinary in the "Melkart" folder
                     String imageUrl = cloudinary.uploader()
                             .upload(image.getBytes(), Map.of(
                                     "public_id", UUID.randomUUID().toString(),
-                                    "folder", "Melkart"  // Specify folder name "Melkart"
+                                    "folder", "Melkart"
                             ))
                             .get("url")
                             .toString();
@@ -66,19 +68,18 @@ public class ProductServiceImpl implements ProductService {
         product.setPrice(productRequestDTO.getPrice());
         product.setCurrency(productRequestDTO.getCurrency());
         product.setWebsiteUrl(productRequestDTO.getWebsiteUrl());
-        product.setImageUrls(imageUrls);  // Set list of image URLs
+        product.setImageUrls(imageUrls);
         product.setSourceCountry(productRequestDTO.getSourceCountry());
-        product.setStatus(Optional.ofNullable(productRequestDTO.getStatus()).orElse(Status.ACTIVE)); // Default to ACTIVE
+        product.setStatus(Optional.ofNullable(productRequestDTO.getStatus()).orElse(Status.ACTIVE));
         product.setAdmin(admin);
-        product.setCreatedAt(LocalDateTime.now()); // Automatically set timestamp
+        product.setSubCategory(subCategory);
+        product.setCreatedAt(LocalDateTime.now());
 
         Product savedProduct = productRepository.save(product);
         logger.info("Product created successfully with ID: {}", savedProduct.getId());
 
         return savedProduct;
     }
-
-
 
     @Override
     public List<ProductResponseDTO> getAllProducts() {
@@ -95,10 +96,10 @@ public class ProductServiceImpl implements ProductService {
                         productResponseDTO.setPrice(product.getPrice());
                         productResponseDTO.setCurrency(product.getCurrency());
                         productResponseDTO.setWebsiteUrl(product.getWebsiteUrl());
-                        productResponseDTO.setImageUrls(product.getImageUrls());  // Now using imageUrls
+                        productResponseDTO.setImageUrls(product.getImageUrls());
                         productResponseDTO.setSourceCountry(product.getSourceCountry());
                         productResponseDTO.setStatus(product.getStatus());
-
+                        productResponseDTO.setSubCategoryName(product.getSubCategory().getName());
                         return productResponseDTO;
                     })
                     .collect(Collectors.toList());
@@ -111,14 +112,15 @@ public class ProductServiceImpl implements ProductService {
         }
     }
 
-
     @Override
     public Product updateProduct(Long id, ProductUpdateRequestDTO productUpdateRequestDTO) {
         try {
             Product product = productRepository.findById(id)
                     .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
 
-            // Update fields as usual
+            SubCategory subCategory = subCategoryRepository.findById(productUpdateRequestDTO.getSubCategoryId())
+                    .orElseThrow(() -> new RuntimeException("SubCategory not found with id: " + productUpdateRequestDTO.getSubCategoryId()));
+
             product.setName(productUpdateRequestDTO.getName());
             product.setCategory(productUpdateRequestDTO.getCategory());
             product.setBrand(productUpdateRequestDTO.getBrand());
@@ -129,19 +131,18 @@ public class ProductServiceImpl implements ProductService {
             product.setWebsiteUrl(productUpdateRequestDTO.getWebsiteUrl());
             product.setSourceCountry(productUpdateRequestDTO.getSourceCountry());
             product.setStatus(productUpdateRequestDTO.getStatus());
+            product.setSubCategory(subCategory);
 
-            // Update images if any are provided
             if (productUpdateRequestDTO.getImageUrls() != null && !productUpdateRequestDTO.getImageUrls().isEmpty()) {
                 List<String> updatedImageUrls = new ArrayList<>();
                 for (String imageUrl : productUpdateRequestDTO.getImageUrls()) {
-                    // Upload image to Cloudinary
                     String cloudinaryUrl = cloudinary.uploader()
                             .upload(imageUrl.getBytes(), Map.of("public_id", UUID.randomUUID().toString()))
                             .get("url")
                             .toString();
                     updatedImageUrls.add(cloudinaryUrl);
                 }
-                product.setImageUrls(updatedImageUrls); // Set the updated image URLs
+                product.setImageUrls(updatedImageUrls);
             }
 
             return productRepository.save(product);
@@ -154,7 +155,6 @@ public class ProductServiceImpl implements ProductService {
             throw new RuntimeException("Unexpected error occurred while updating product", e);
         }
     }
-
 
     @Override
     public void deleteProduct(Long id) {

@@ -6,12 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.time.LocalDateTime;
 import java.util.List;
-
-import org.springframework.web.multipart.MultipartFile;
-
-
 
 @Data
 public class ProductRequestDTO {
@@ -39,9 +34,10 @@ public class ProductRequestDTO {
 
     private String websiteUrl;
 
-    private List<MultipartFile> imageUrls; // List for images
+    private List<MultipartFile> imageUrls;
 
     private String sourceCountry;
     private Status status;
     private Long adminId;
+    private Long subCategoryId;
 }
