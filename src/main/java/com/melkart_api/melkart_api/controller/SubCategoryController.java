@@ -1,14 +1,13 @@
 package com.melkart_api.melkart_api.controller;
 
 
-import com.melkart_api.melkart_api.controller.dto.request.SubCategoryRequestDTO;
-import com.melkart_api.melkart_api.model.Category;
+import com.melkart_api.melkart_api.controller.dto.request.SubCategoryCreateRequestDTO;
+import com.melkart_api.melkart_api.controller.dto.response.GetAllSubCategoryDTO;
 import com.melkart_api.melkart_api.model.SubCategory;
 import com.melkart_api.melkart_api.service.SubCategoryService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,10 +22,10 @@ public class SubCategoryController {
 
 
     @PostMapping
-    public ResponseEntity<SubCategory> createSubCategory(@RequestBody SubCategoryRequestDTO subCategoryRequestDTO) {
-        System.out.println(subCategoryRequestDTO.getName());
-        System.out.println(subCategoryRequestDTO.getCategoryId());
-        SubCategory subCategory = subCategoryService.createSubCategory(subCategoryRequestDTO);
+    public ResponseEntity<SubCategory> createSubCategory(@RequestBody SubCategoryCreateRequestDTO subCategoryCreateRequestDTO) {
+        System.out.println(subCategoryCreateRequestDTO.getName());
+        System.out.println(subCategoryCreateRequestDTO.getCategoryId());
+        SubCategory subCategory = subCategoryService.createSubCategory(subCategoryCreateRequestDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(subCategory);
     }
 
@@ -37,9 +36,10 @@ public class SubCategoryController {
     }
 
     @GetMapping
-    public ResponseEntity<List<SubCategory>> getAllSubCategories(){
+    public ResponseEntity<List<GetAllSubCategoryDTO>> getAllSubCategories() {
         return ResponseEntity.ok(subCategoryService.getAllSubCategories());
     }
+
 
 
 }

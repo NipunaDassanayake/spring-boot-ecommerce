@@ -1,6 +1,6 @@
 package com.melkart_api.melkart_api.controller;
 
-import com.melkart_api.melkart_api.controller.dto.request.AdminRequestDTO;
+import com.melkart_api.melkart_api.controller.dto.request.AdminCreateRequestDTO;
 import com.melkart_api.melkart_api.controller.dto.request.AdminUpdateRequestDTO;
 import com.melkart_api.melkart_api.controller.dto.response.GetAdminByIdDTO;
 import com.melkart_api.melkart_api.controller.dto.response.GetAllAdminsDTO;
@@ -24,8 +24,8 @@ public class AdminController {
     private final AdminService adminService;
 
     @PostMapping
-    public ResponseEntity<Admin> createAdmin(@Valid @RequestBody AdminRequestDTO adminRequestDTO) {
-        Admin createdAdmin = adminService.createAdmin(adminRequestDTO);
+    public ResponseEntity<Admin> createAdmin(@Valid @RequestBody AdminCreateRequestDTO adminCreateRequestDTO) {
+        Admin createdAdmin = adminService.createAdmin(adminCreateRequestDTO);
         return new ResponseEntity<>(createdAdmin, HttpStatus.CREATED);
     }
 

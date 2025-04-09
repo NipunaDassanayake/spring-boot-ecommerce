@@ -1,6 +1,6 @@
 package com.melkart_api.melkart_api.controller;
 
-import com.melkart_api.melkart_api.controller.dto.request.UserRequestDTO;
+import com.melkart_api.melkart_api.controller.dto.request.UserCreateRequestDTO;
 import com.melkart_api.melkart_api.controller.dto.response.GetAllUsersResponseDTO;
 import com.melkart_api.melkart_api.controller.dto.response.GetUserByIdResponseDTO;
 import com.melkart_api.melkart_api.controller.dto.request.UpdateUserRequestDTO;
@@ -19,8 +19,8 @@ public class UserController {
     private  UserService userService;
 
     @PostMapping
-    public ResponseEntity<String> createUser(@RequestBody UserRequestDTO userRequestDTO) {
-        userService.createUser(userRequestDTO);
+    public ResponseEntity<String> createUser(@RequestBody UserCreateRequestDTO userCreateRequestDTO) {
+        userService.createUser(userCreateRequestDTO);
         return ResponseEntity.ok("User Created Successfully");
     }
 

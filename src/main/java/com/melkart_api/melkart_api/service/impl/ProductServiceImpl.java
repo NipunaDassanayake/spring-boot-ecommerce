@@ -1,7 +1,7 @@
 package com.melkart_api.melkart_api.service.impl;
 
 import com.cloudinary.Cloudinary;
-import com.melkart_api.melkart_api.controller.dto.request.ProductRequestDTO;
+import com.melkart_api.melkart_api.controller.dto.request.ProductCreateRequestDTO;
 import com.melkart_api.melkart_api.controller.dto.request.ProductUpdateRequestDTO;
 import com.melkart_api.melkart_api.controller.dto.response.ProductResponseDTO;
 import com.melkart_api.melkart_api.model.*;
@@ -31,18 +31,18 @@ public class ProductServiceImpl implements ProductService {
     private final Cloudinary cloudinary;
 
     @Override
-    public Product createProduct(ProductRequestDTO productRequestDTO) {
-        logger.info("Creating new product: {}", productRequestDTO.getName());
+    public Product createProduct(ProductCreateRequestDTO productCreateRequestDTO) {
+        logger.info("Creating new product: {}", productCreateRequestDTO.getName());
 
-        Admin admin = adminRepository.findById(productRequestDTO.getAdminId())
-                .orElseThrow(() -> new RuntimeException("Admin not found with id: " + productRequestDTO.getAdminId()));
+        Admin admin = adminRepository.findById(productCreateRequestDTO.getAdminId())
+                .orElseThrow(() -> new RuntimeException("Admin not found with id: " + productCreateRequestDTO.getAdminId()));
 
-        SubCategory subCategory = subCategoryRepository.findById(productRequestDTO.getSubCategoryId())
-                .orElseThrow(() -> new RuntimeException("SubCategory not found with id: " + productRequestDTO.getSubCategoryId()));
+        SubCategory subCategory = subCategoryRepository.findById(productCreateRequestDTO.getSubCategoryId())
+                .orElseThrow(() -> new RuntimeException("SubCategory not found with id: " + productCreateRequestDTO.getSubCategoryId()));
         System.out.println(subCategory);
         List<String> imageUrls = new ArrayList<>();
-        if (productRequestDTO.getImageUrls() != null && !productRequestDTO.getImageUrls().isEmpty()) {
-            for (MultipartFile image : productRequestDTO.getImageUrls()) {
+        if (productCreateRequestDTO.getImageUrls() != null && !productCreateRequestDTO.getImageUrls().isEmpty()) {
+            for (MultipartFile image : productCreateRequestDTO.getImageUrls()) {
                 try {
                     String imageUrl = cloudinary.uploader()
                             .upload(image.getBytes(), Map.of(
@@ -60,17 +60,17 @@ public class ProductServiceImpl implements ProductService {
         }
 
         Product product = new Product();
-        product.setName(productRequestDTO.getName());
-        product.setCategory(productRequestDTO.getCategory());
-        product.setBrand(productRequestDTO.getBrand());
-        product.setModel(productRequestDTO.getModel());
-        product.setDescription(productRequestDTO.getDescription());
-        product.setPrice(productRequestDTO.getPrice());
-        product.setCurrency(productRequestDTO.getCurrency());
-        product.setWebsiteUrl(productRequestDTO.getWebsiteUrl());
+        product.setName(productCreateRequestDTO.getName());
+        product.setCategory(productCreateRequestDTO.getCategory());
+        product.setBrand(productCreateRequestDTO.getBrand());
+        product.setModel(productCreateRequestDTO.getModel());
+        product.setDescription(productCreateRequestDTO.getDescription());
+        product.setPrice(productCreateRequestDTO.getPrice());
+        product.setCurrency(productCreateRequestDTO.getCurrency());
+        product.setWebsiteUrl(productCreateRequestDTO.getWebsiteUrl());
         product.setImageUrls(imageUrls);
-        product.setSourceCountry(productRequestDTO.getSourceCountry());
-        product.setStatus(Optional.ofNullable(productRequestDTO.getStatus()).orElse(Status.ACTIVE));
+        product.setSourceCountry(productCreateRequestDTO.getSourceCountry());
+        product.setStatus(Optional.ofNullable(productCreateRequestDTO.getStatus()).orElse(Status.ACTIVE));
         product.setAdmin(admin);
         product.setSubCategory(subCategory);
         product.setCreatedAt(LocalDateTime.now());

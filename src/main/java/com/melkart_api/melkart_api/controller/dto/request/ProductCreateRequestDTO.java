@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 @Data
-public class ProductRequestDTO {
+public class ProductCreateRequestDTO {
     @NotNull
     @NotEmpty
     private String name;

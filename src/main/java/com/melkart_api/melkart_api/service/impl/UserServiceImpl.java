@@ -1,7 +1,7 @@
 package com.melkart_api.melkart_api.service.impl;
 
 import com.cloudinary.Cloudinary;
-import com.melkart_api.melkart_api.controller.dto.request.UserRequestDTO;
+import com.melkart_api.melkart_api.controller.dto.request.UserCreateRequestDTO;
 import com.melkart_api.melkart_api.controller.dto.response.GetAllUsersResponseDTO;
 import com.melkart_api.melkart_api.controller.dto.response.GetUserByIdResponseDTO;
 import com.melkart_api.melkart_api.controller.dto.request.UpdateUserRequestDTO;
@@ -30,14 +30,14 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public void createUser(UserRequestDTO userRequestDTO) {
+    public void createUser(UserCreateRequestDTO userCreateRequestDTO) {
         User user = new User();
-        user.setFirstName(userRequestDTO.getFirstName());
-        user.setLastName(userRequestDTO.getLastName());
-        user.setEmail(userRequestDTO.getEmail());
-        user.setPassword(userRequestDTO.getPassword());
-        user.setWalletBalance(userRequestDTO.getWalletBalance() != null ? userRequestDTO.getWalletBalance() : BigDecimal.ZERO);
-        user.setLoyaltyPoints(userRequestDTO.getLoyaltyPoints() != null ? userRequestDTO.getLoyaltyPoints() : 0);
+        user.setFirstName(userCreateRequestDTO.getFirstName());
+        user.setLastName(userCreateRequestDTO.getLastName());
+        user.setEmail(userCreateRequestDTO.getEmail());
+        user.setPassword(userCreateRequestDTO.getPassword());
+//        user.setWalletBalance(userCreateRequestDTO.getWalletBalance() != null ? userCreateRequestDTO.getWalletBalance() : BigDecimal.ZERO);
+//        user.setLoyaltyPoints(userCreateRequestDTO.getLoyaltyPoints() != null ? userCreateRequestDTO.getLoyaltyPoints() : 0);
         userRepository.save(user);
     }
 
@@ -85,6 +85,7 @@ public class UserServiceImpl implements UserService {
             responseDTO.setLastName(user.getLastName());
             responseDTO.setWalletBalance(user.getWalletBalance());
             responseDTO.setLoyaltyPoints(user.getLoyaltyPoints());
+            responseDTO.setProfilePic(user.getProfilePic());
 
             logger.info("Successfully retrieved user with ID: {}", userId);
             return responseDTO;
@@ -114,7 +115,8 @@ public class UserServiceImpl implements UserService {
             if (updateUserRequestDTO.getProfilePic() != null && !updateUserRequestDTO.getProfilePic().isEmpty()) {
                 String profilePicUrl = cloudinary.uploader()
                         .upload(updateUserRequestDTO.getProfilePic().getBytes(),
-                                Map.of("public_id", UUID.randomUUID().toString()))
+                                Map.of("public_id", UUID.randomUUID().toString(),
+                                        "folder", "ProfilePictures"))
                         .get("url")
                         .toString();
                 user.setProfilePic(profilePicUrl);

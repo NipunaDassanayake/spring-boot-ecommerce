@@ -1,6 +1,7 @@
 package com.melkart_api.melkart_api.service.impl;
 
-import com.melkart_api.melkart_api.controller.dto.request.SubCategoryRequestDTO;
+import com.melkart_api.melkart_api.controller.dto.request.SubCategoryCreateRequestDTO;
+import com.melkart_api.melkart_api.controller.dto.response.GetAllSubCategoryDTO;
 import com.melkart_api.melkart_api.exceptions.ResourceNotFoundException;
 import com.melkart_api.melkart_api.model.Category;
 import com.melkart_api.melkart_api.model.SubCategory;
@@ -9,9 +10,9 @@ import com.melkart_api.melkart_api.repository.SubCategoryRepository;
 import com.melkart_api.melkart_api.service.SubCategoryService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -23,22 +24,22 @@ public class SubCategoryServiceImpl implements SubCategoryService {
     private final SubCategoryRepository subCategoryRepository;
 
     @Override
-    public SubCategory createSubCategory(SubCategoryRequestDTO subCategoryRequestDTO) {
+    public SubCategory createSubCategory(SubCategoryCreateRequestDTO subCategoryCreateRequestDTO) {
         try {
             log.info("Attempting to create subcategory with name: '{}' under category ID: {}",
-                    subCategoryRequestDTO.getName(), subCategoryRequestDTO.getCategoryId());
+                    subCategoryCreateRequestDTO.getName(), subCategoryCreateRequestDTO.getCategoryId());
 
 
-            Category category = categoryRepository.findById(subCategoryRequestDTO.getCategoryId())
+            Category category = categoryRepository.findById(subCategoryCreateRequestDTO.getCategoryId())
                     .orElseThrow(() -> {
-                        String errorMessage = "Category with ID " + subCategoryRequestDTO.getCategoryId() + " not found";
+                        String errorMessage = "Category with ID " + subCategoryCreateRequestDTO.getCategoryId() + " not found";
                         log.error(errorMessage);
                         return new RuntimeException(errorMessage);
                     });
 
 
             SubCategory subCategory = new SubCategory();
-            subCategory.setName(subCategoryRequestDTO.getName());
+            subCategory.setName(subCategoryCreateRequestDTO.getName());
             subCategory.setCategory(category);
 
 
@@ -58,10 +59,23 @@ public class SubCategoryServiceImpl implements SubCategoryService {
 
 
     @Override
-    public List<SubCategory> getAllSubCategories() {
-        return subCategoryRepository.findAll();
+    public List<GetAllSubCategoryDTO> getAllSubCategories() {
+        try {
+            List<SubCategory> subCategories = subCategoryRepository.findAll();
 
+            return subCategories.stream().map(subCategory -> {
+                GetAllSubCategoryDTO dto = new GetAllSubCategoryDTO();
+                dto.setId(subCategory.getId());
+                dto.setName(subCategory.getName());
+                return dto;
+            }).toList();
+
+        } catch (Exception e) {
+            log.error("Failed to retrieve subcategories", e);
+            return Collections.emptyList();
+        }
     }
+
     @Override
     public void delete(Long id) {
         try {

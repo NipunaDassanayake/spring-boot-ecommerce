@@ -1,6 +1,6 @@
 package com.melkart_api.melkart_api.service.impl;
 
-import com.melkart_api.melkart_api.controller.dto.request.AdminRequestDTO;
+import com.melkart_api.melkart_api.controller.dto.request.AdminCreateRequestDTO;
 import com.melkart_api.melkart_api.controller.dto.request.AdminUpdateRequestDTO;
 import com.melkart_api.melkart_api.controller.dto.response.GetAdminByIdDTO;
 import com.melkart_api.melkart_api.controller.dto.response.GetAllAdminsDTO;
@@ -13,7 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,13 +25,13 @@ public class AdminServiceImpl implements AdminService {
     private final AdminRepository adminRepository;
 
     @Override
-    public Admin createAdmin(AdminRequestDTO adminRequestDTO) {
+    public Admin createAdmin(AdminCreateRequestDTO adminCreateRequestDTO) {
 
         try {
             Admin admin = new Admin();
-            admin.setName(adminRequestDTO.getName());
-            admin.setEmail(adminRequestDTO.getEmail());
-            admin.setPassword(adminRequestDTO.getPassword()); // In production, hash the password before saving
+            admin.setName(adminCreateRequestDTO.getName());
+            admin.setEmail(adminCreateRequestDTO.getEmail());
+            admin.setPassword(adminCreateRequestDTO.getPassword()); // In production, hash the password before saving
             return adminRepository.save(admin);
         } catch (DataAccessException e) {
             logger.error("Failed to create admin due to database error: {}", e.getMessage(), e);

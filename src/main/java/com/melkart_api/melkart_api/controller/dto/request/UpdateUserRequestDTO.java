@@ -13,7 +13,5 @@ public class UpdateUserRequestDTO {
     private String email;
     private MultipartFile profilePic;
     private String password;
-    private BigDecimal walletBalance;
-    private Integer loyaltyPoints;
 
 }

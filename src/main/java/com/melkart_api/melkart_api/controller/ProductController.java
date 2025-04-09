@@ -1,6 +1,6 @@
 package com.melkart_api.melkart_api.controller;
 
-import com.melkart_api.melkart_api.controller.dto.request.ProductRequestDTO;
+import com.melkart_api.melkart_api.controller.dto.request.ProductCreateRequestDTO;
 import com.melkart_api.melkart_api.controller.dto.response.ProductResponseDTO;
 import com.melkart_api.melkart_api.model.Product;
 import com.melkart_api.melkart_api.service.ProductService;
@@ -18,8 +18,8 @@ public class ProductController {
     private final ProductService productService;
 
     @PostMapping
-    public ResponseEntity<Product> createProduct(@ModelAttribute ProductRequestDTO productRequestDTO) {
-        Product createdProduct = productService.createProduct(productRequestDTO);
+    public ResponseEntity<Product> createProduct(@ModelAttribute ProductCreateRequestDTO productCreateRequestDTO) {
+        Product createdProduct = productService.createProduct(productCreateRequestDTO);
         return ResponseEntity.ok(createdProduct);
     }
 
