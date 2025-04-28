@@ -1,23 +1,23 @@
-2025-04-09T11:18:47.281+05:30  INFO 211917 --- [melkart-api] [main] c.m.melkart_api.MelkartApiApplication    : Starting MelkartApiApplication using Java 21.0.6 with PID 211917 (/home/nipuna/Downloads/melkart-api/target/classes started by nipuna in /home/nipuna/Downloads/melkart-api)
-2025-04-09T11:18:47.283+05:30 DEBUG 211917 --- [melkart-api] [main] c.m.melkart_api.MelkartApiApplication    : Running with Spring Boot v3.4.3, Spring v6.2.3
-2025-04-09T11:18:47.284+05:30  INFO 211917 --- [melkart-api] [main] c.m.melkart_api.MelkartApiApplication    : The following 1 profile is active: "dev"
-2025-04-09T11:18:47.596+05:30  INFO 211917 --- [melkart-api] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-04-09T11:18:47.630+05:30  INFO 211917 --- [melkart-api] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30 ms. Found 6 JPA repository interfaces.
-2025-04-09T11:18:47.861+05:30  INFO 211917 --- [melkart-api] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-04-09T11:18:47.869+05:30  INFO 211917 --- [melkart-api] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-04-09T11:18:47.869+05:30  INFO 211917 --- [melkart-api] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
-2025-04-09T11:18:47.890+05:30  INFO 211917 --- [melkart-api] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-04-09T11:18:47.890+05:30  INFO 211917 --- [melkart-api] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 585 ms
-2025-04-09T11:18:47.966+05:30  INFO 211917 --- [melkart-api] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-04-09T11:18:47.986+05:30  INFO 211917 --- [melkart-api] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
-2025-04-09T11:18:48.000+05:30  INFO 211917 --- [melkart-api] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-04-09T11:18:48.105+05:30  INFO 211917 --- [melkart-api] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-04-09T11:18:48.118+05:30  INFO 211917 --- [melkart-api] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-04-09T11:18:48.201+05:30  INFO 211917 --- [melkart-api] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1b1e1f02
-2025-04-09T11:18:48.202+05:30  INFO 211917 --- [melkart-api] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-04-09T11:18:48.231+05:30  WARN 211917 --- [melkart-api] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-04-09T11:18:48.231+05:30  WARN 211917 --- [melkart-api] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-04-09T11:18:48.242+05:30  INFO 211917 --- [melkart-api] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-04-28T12:33:19.012+05:30  INFO 5096 --- [melkart-api] [main] c.m.melkart_api.MelkartApiApplication    : Starting MelkartApiApplication using Java 21.0.6 with PID 5096 (/home/nipuna/Downloads/melkart-api/target/classes started by nipuna in /home/nipuna/Downloads/melkart-api)
+2025-04-28T12:33:19.015+05:30 DEBUG 5096 --- [melkart-api] [main] c.m.melkart_api.MelkartApiApplication    : Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-04-28T12:33:19.016+05:30  INFO 5096 --- [melkart-api] [main] c.m.melkart_api.MelkartApiApplication    : The following 1 profile is active: "dev"
+2025-04-28T12:33:19.340+05:30  INFO 5096 --- [melkart-api] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-28T12:33:19.378+05:30  INFO 5096 --- [melkart-api] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32 ms. Found 7 JPA repository interfaces.
+2025-04-28T12:33:19.656+05:30  INFO 5096 --- [melkart-api] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-04-28T12:33:19.665+05:30  INFO 5096 --- [melkart-api] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-04-28T12:33:19.665+05:30  INFO 5096 --- [melkart-api] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-04-28T12:33:19.691+05:30  INFO 5096 --- [melkart-api] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-04-28T12:33:19.692+05:30  INFO 5096 --- [melkart-api] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 656 ms
+2025-04-28T12:33:19.773+05:30  INFO 5096 --- [melkart-api] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-28T12:33:19.804+05:30  INFO 5096 --- [melkart-api] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-04-28T12:33:19.822+05:30  INFO 5096 --- [melkart-api] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-04-28T12:33:19.954+05:30  INFO 5096 --- [melkart-api] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-28T12:33:19.970+05:30  INFO 5096 --- [melkart-api] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-04-28T12:33:20.110+05:30  INFO 5096 --- [melkart-api] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6eabe718
+2025-04-28T12:33:20.111+05:30  INFO 5096 --- [melkart-api] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-04-28T12:33:20.138+05:30  WARN 5096 --- [melkart-api] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-28T12:33:20.139+05:30  WARN 5096 --- [melkart-api] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-04-28T12:33:20.147+05:30  INFO 5096 --- [melkart-api] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0
@@ -25,166 +25,7 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-04-09T11:18:48.680+05:30  INFO 211917 --- [melkart-api] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-04-09T11:18:48.736+05:30  INFO 211917 --- [melkart-api] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-04-09T11:18:49.057+05:30  INFO 211917 --- [melkart-api] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-04-09T11:18:49.062+05:30  INFO 211917 --- [melkart-api] [main] c.m.melkart_api.MelkartApiApplication    : Started MelkartApiApplication in 1.973 seconds (process running for 2.114)
-2025-04-09T11:19:01.002+05:30  INFO 211917 --- [melkart-api] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-04-09T11:19:01.003+05:30  INFO 211917 --- [melkart-api] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-04-09T11:19:01.003+05:30  INFO 211917 --- [melkart-api] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2025-04-09T12:05:49.758+05:30  INFO 211917 --- [melkart-api] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-04-09T12:05:49.760+05:30  INFO 211917 --- [melkart-api] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-04-09T12:05:49.764+05:30  INFO 211917 --- [melkart-api] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-04-09T12:05:49.765+05:30  INFO 211917 --- [melkart-api] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-04-09T12:05:49.767+05:30  INFO 211917 --- [melkart-api] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-04-09T12:05:54.157+05:30  INFO 223994 --- [melkart-api] [main] c.m.melkart_api.MelkartApiApplication    : Starting MelkartApiApplication using Java 21.0.6 with PID 223994 (/home/nipuna/Downloads/melkart-api/target/classes started by nipuna in /home/nipuna/Downloads/melkart-api)
-2025-04-09T12:05:54.158+05:30 DEBUG 223994 --- [melkart-api] [main] c.m.melkart_api.MelkartApiApplication    : Running with Spring Boot v3.4.3, Spring v6.2.3
-2025-04-09T12:05:54.158+05:30  INFO 223994 --- [melkart-api] [main] c.m.melkart_api.MelkartApiApplication    : The following 1 profile is active: "dev"
-2025-04-09T12:05:54.418+05:30  INFO 223994 --- [melkart-api] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-04-09T12:05:54.452+05:30  INFO 223994 --- [melkart-api] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30 ms. Found 6 JPA repository interfaces.
-2025-04-09T12:05:54.656+05:30  INFO 223994 --- [melkart-api] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-04-09T12:05:54.664+05:30  INFO 223994 --- [melkart-api] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-04-09T12:05:54.665+05:30  INFO 223994 --- [melkart-api] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
-2025-04-09T12:05:54.684+05:30  INFO 223994 --- [melkart-api] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-04-09T12:05:54.684+05:30  INFO 223994 --- [melkart-api] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 508 ms
-2025-04-09T12:05:54.758+05:30  INFO 223994 --- [melkart-api] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-04-09T12:05:54.778+05:30  INFO 223994 --- [melkart-api] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
-2025-04-09T12:05:54.791+05:30  INFO 223994 --- [melkart-api] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-04-09T12:05:54.896+05:30  INFO 223994 --- [melkart-api] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-04-09T12:05:54.914+05:30  INFO 223994 --- [melkart-api] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-04-09T12:05:54.990+05:30  INFO 223994 --- [melkart-api] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6bd7439d
-2025-04-09T12:05:54.991+05:30  INFO 223994 --- [melkart-api] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-04-09T12:05:55.013+05:30  WARN 223994 --- [melkart-api] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-04-09T12:05:55.014+05:30  WARN 223994 --- [melkart-api] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-04-09T12:05:55.022+05:30  INFO 223994 --- [melkart-api] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 8.0
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-04-09T12:05:55.459+05:30  INFO 223994 --- [melkart-api] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-04-09T12:05:55.507+05:30  INFO 223994 --- [melkart-api] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-04-09T12:05:55.825+05:30  INFO 223994 --- [melkart-api] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-04-09T12:05:55.829+05:30  INFO 223994 --- [melkart-api] [main] c.m.melkart_api.MelkartApiApplication    : Started MelkartApiApplication in 1.859 seconds (process running for 1.989)
-2025-04-09T12:10:24.444+05:30  INFO 223994 --- [melkart-api] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-04-09T12:10:24.447+05:30  INFO 223994 --- [melkart-api] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-04-09T12:10:24.451+05:30  INFO 223994 --- [melkart-api] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-04-09T12:10:24.453+05:30  INFO 223994 --- [melkart-api] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-04-09T12:10:24.457+05:30  INFO 223994 --- [melkart-api] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-04-09T12:10:30.939+05:30  INFO 225490 --- [melkart-api] [main] c.m.melkart_api.MelkartApiApplication    : Starting MelkartApiApplication using Java 21.0.6 with PID 225490 (/home/nipuna/Downloads/melkart-api/target/classes started by nipuna in /home/nipuna/Downloads/melkart-api)
-2025-04-09T12:10:30.940+05:30 DEBUG 225490 --- [melkart-api] [main] c.m.melkart_api.MelkartApiApplication    : Running with Spring Boot v3.4.3, Spring v6.2.3
-2025-04-09T12:10:30.941+05:30  INFO 225490 --- [melkart-api] [main] c.m.melkart_api.MelkartApiApplication    : The following 1 profile is active: "dev"
-2025-04-09T12:10:31.215+05:30  INFO 225490 --- [melkart-api] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-04-09T12:10:31.248+05:30  INFO 225490 --- [melkart-api] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 6 JPA repository interfaces.
-2025-04-09T12:10:31.483+05:30  INFO 225490 --- [melkart-api] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-04-09T12:10:31.491+05:30  INFO 225490 --- [melkart-api] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-04-09T12:10:31.491+05:30  INFO 225490 --- [melkart-api] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
-2025-04-09T12:10:31.513+05:30  INFO 225490 --- [melkart-api] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-04-09T12:10:31.514+05:30  INFO 225490 --- [melkart-api] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 550 ms
-2025-04-09T12:10:31.588+05:30  INFO 225490 --- [melkart-api] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-04-09T12:10:31.608+05:30  INFO 225490 --- [melkart-api] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
-2025-04-09T12:10:31.623+05:30  INFO 225490 --- [melkart-api] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-04-09T12:10:31.721+05:30  INFO 225490 --- [melkart-api] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-04-09T12:10:31.734+05:30  INFO 225490 --- [melkart-api] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-04-09T12:10:31.817+05:30  INFO 225490 --- [melkart-api] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6bd7439d
-2025-04-09T12:10:31.818+05:30  INFO 225490 --- [melkart-api] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-04-09T12:10:31.839+05:30  WARN 225490 --- [melkart-api] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-04-09T12:10:31.839+05:30  WARN 225490 --- [melkart-api] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-04-09T12:10:31.847+05:30  INFO 225490 --- [melkart-api] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 8.0
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-04-09T12:10:32.300+05:30  INFO 225490 --- [melkart-api] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-04-09T12:10:32.352+05:30  INFO 225490 --- [melkart-api] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-04-09T12:10:32.652+05:30  INFO 225490 --- [melkart-api] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-04-09T12:10:32.656+05:30  INFO 225490 --- [melkart-api] [main] c.m.melkart_api.MelkartApiApplication    : Started MelkartApiApplication in 1.919 seconds (process running for 2.061)
-2025-04-09T12:12:25.960+05:30  INFO 225490 --- [melkart-api] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-04-09T12:12:25.962+05:30  INFO 225490 --- [melkart-api] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-04-09T12:12:25.964+05:30  INFO 225490 --- [melkart-api] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-04-09T12:12:25.965+05:30  INFO 225490 --- [melkart-api] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-04-09T12:12:25.969+05:30  INFO 225490 --- [melkart-api] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-04-09T12:12:30.349+05:30  INFO 226083 --- [melkart-api] [main] c.m.melkart_api.MelkartApiApplication    : Starting MelkartApiApplication using Java 21.0.6 with PID 226083 (/home/nipuna/Downloads/melkart-api/target/classes started by nipuna in /home/nipuna/Downloads/melkart-api)
-2025-04-09T12:12:30.350+05:30 DEBUG 226083 --- [melkart-api] [main] c.m.melkart_api.MelkartApiApplication    : Running with Spring Boot v3.4.3, Spring v6.2.3
-2025-04-09T12:12:30.350+05:30  INFO 226083 --- [melkart-api] [main] c.m.melkart_api.MelkartApiApplication    : The following 1 profile is active: "dev"
-2025-04-09T12:12:30.628+05:30  INFO 226083 --- [melkart-api] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-04-09T12:12:30.660+05:30  INFO 226083 --- [melkart-api] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 6 JPA repository interfaces.
-2025-04-09T12:12:30.882+05:30  INFO 226083 --- [melkart-api] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-04-09T12:12:30.890+05:30  INFO 226083 --- [melkart-api] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-04-09T12:12:30.891+05:30  INFO 226083 --- [melkart-api] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
-2025-04-09T12:12:30.910+05:30  INFO 226083 --- [melkart-api] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-04-09T12:12:30.910+05:30  INFO 226083 --- [melkart-api] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 536 ms
-2025-04-09T12:12:30.977+05:30  INFO 226083 --- [melkart-api] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-04-09T12:12:30.996+05:30  INFO 226083 --- [melkart-api] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
-2025-04-09T12:12:31.009+05:30  INFO 226083 --- [melkart-api] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-04-09T12:12:31.113+05:30  INFO 226083 --- [melkart-api] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-04-09T12:12:31.126+05:30  INFO 226083 --- [melkart-api] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-04-09T12:12:31.205+05:30  INFO 226083 --- [melkart-api] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1d77746b
-2025-04-09T12:12:31.206+05:30  INFO 226083 --- [melkart-api] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-04-09T12:12:31.226+05:30  WARN 226083 --- [melkart-api] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-04-09T12:12:31.227+05:30  WARN 226083 --- [melkart-api] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-04-09T12:12:31.234+05:30  INFO 226083 --- [melkart-api] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 8.0
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-04-09T12:12:31.689+05:30  INFO 226083 --- [melkart-api] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-04-09T12:12:31.737+05:30  INFO 226083 --- [melkart-api] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-04-09T12:12:32.057+05:30  INFO 226083 --- [melkart-api] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-04-09T12:12:32.061+05:30  INFO 226083 --- [melkart-api] [main] c.m.melkart_api.MelkartApiApplication    : Started MelkartApiApplication in 1.916 seconds (process running for 2.058)
-2025-04-09T12:14:05.047+05:30  INFO 226083 --- [melkart-api] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-04-09T12:14:05.047+05:30  INFO 226083 --- [melkart-api] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-04-09T12:14:05.048+05:30  INFO 226083 --- [melkart-api] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2025-04-09T12:16:42.923+05:30  INFO 226083 --- [melkart-api] [http-nio-8080-exec-5] c.m.m.service.impl.UserServiceImpl       : Updating user with ID: 1
-2025-04-09T12:16:50.922+05:30  INFO 226083 --- [melkart-api] [http-nio-8080-exec-5] c.m.m.service.impl.UserServiceImpl       : Successfully updated user with ID: 1
-2025-04-09T12:17:33.707+05:30  INFO 226083 --- [melkart-api] [http-nio-8080-exec-6] c.m.m.service.impl.UserServiceImpl       : Fetching user with ID: 1
-2025-04-09T12:17:33.712+05:30  INFO 226083 --- [melkart-api] [http-nio-8080-exec-6] c.m.m.service.impl.UserServiceImpl       : Successfully retrieved user with ID: 1
-2025-04-09T12:20:00.122+05:30  INFO 226083 --- [melkart-api] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-04-09T12:20:00.124+05:30  INFO 226083 --- [melkart-api] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-04-09T12:20:00.129+05:30  INFO 226083 --- [melkart-api] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-04-09T12:20:00.131+05:30  INFO 226083 --- [melkart-api] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-04-09T12:20:00.138+05:30  INFO 226083 --- [melkart-api] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-04-09T12:20:04.212+05:30  INFO 228704 --- [melkart-api] [main] c.m.melkart_api.MelkartApiApplication    : Starting MelkartApiApplication using Java 21.0.6 with PID 228704 (/home/nipuna/Downloads/melkart-api/target/classes started by nipuna in /home/nipuna/Downloads/melkart-api)
-2025-04-09T12:20:04.213+05:30 DEBUG 228704 --- [melkart-api] [main] c.m.melkart_api.MelkartApiApplication    : Running with Spring Boot v3.4.3, Spring v6.2.3
-2025-04-09T12:20:04.213+05:30  INFO 228704 --- [melkart-api] [main] c.m.melkart_api.MelkartApiApplication    : The following 1 profile is active: "dev"
-2025-04-09T12:20:04.479+05:30  INFO 228704 --- [melkart-api] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-04-09T12:20:04.514+05:30  INFO 228704 --- [melkart-api] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30 ms. Found 6 JPA repository interfaces.
-2025-04-09T12:20:04.714+05:30  INFO 228704 --- [melkart-api] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-04-09T12:20:04.723+05:30  INFO 228704 --- [melkart-api] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-04-09T12:20:04.723+05:30  INFO 228704 --- [melkart-api] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
-2025-04-09T12:20:04.742+05:30  INFO 228704 --- [melkart-api] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-04-09T12:20:04.743+05:30  INFO 228704 --- [melkart-api] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 508 ms
-2025-04-09T12:20:04.813+05:30  INFO 228704 --- [melkart-api] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-04-09T12:20:04.833+05:30  INFO 228704 --- [melkart-api] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
-2025-04-09T12:20:04.847+05:30  INFO 228704 --- [melkart-api] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-04-09T12:20:04.953+05:30  INFO 228704 --- [melkart-api] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-04-09T12:20:04.972+05:30  INFO 228704 --- [melkart-api] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-04-09T12:20:05.048+05:30  INFO 228704 --- [melkart-api] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6bd7439d
-2025-04-09T12:20:05.049+05:30  INFO 228704 --- [melkart-api] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-04-09T12:20:05.076+05:30  WARN 228704 --- [melkart-api] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-04-09T12:20:05.076+05:30  WARN 228704 --- [melkart-api] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-04-09T12:20:05.084+05:30  INFO 228704 --- [melkart-api] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 8.0
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-04-09T12:20:05.512+05:30  INFO 228704 --- [melkart-api] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-04-09T12:20:05.563+05:30  INFO 228704 --- [melkart-api] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-04-09T12:20:05.883+05:30  INFO 228704 --- [melkart-api] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-04-09T12:20:05.888+05:30  INFO 228704 --- [melkart-api] [main] c.m.melkart_api.MelkartApiApplication    : Started MelkartApiApplication in 1.862 seconds (process running for 2.0)
-2025-04-09T12:20:09.243+05:30  INFO 228704 --- [melkart-api] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-04-09T12:20:09.243+05:30  INFO 228704 --- [melkart-api] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-04-09T12:20:09.246+05:30  INFO 228704 --- [melkart-api] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2025-04-09T12:20:09.267+05:30  INFO 228704 --- [melkart-api] [http-nio-8080-exec-2] c.m.m.service.impl.UserServiceImpl       : Fetching user with ID: 1
-2025-04-09T12:20:09.307+05:30  INFO 228704 --- [melkart-api] [http-nio-8080-exec-2] c.m.m.service.impl.UserServiceImpl       : Successfully retrieved user with ID: 1
+2025-04-28T12:33:20.674+05:30  INFO 5096 --- [melkart-api] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-28T12:33:21.021+05:30  INFO 5096 --- [melkart-api] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-28T12:33:21.390+05:30  INFO 5096 --- [melkart-api] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-04-28T12:33:21.394+05:30  INFO 5096 --- [melkart-api] [main] c.m.melkart_api.MelkartApiApplication    : Started MelkartApiApplication in 2.613 seconds (process running for 2.79)
