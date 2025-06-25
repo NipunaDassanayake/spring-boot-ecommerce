@@ -15,4 +15,6 @@ public interface UserService {
     List<GetAllUsersResponseDTO> getAllUsers();
     public void delete(Long userId);
     User updateUser(Long userId, UpdateUserRequestDTO updateUserRequestDTO);
+    void deactivateUser(Long userId);
+    void activateUser(Long userId);
 }

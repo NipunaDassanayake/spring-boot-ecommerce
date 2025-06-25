@@ -50,4 +50,16 @@ public class UserController {
         userService.updateUser(userId,updateUserRequestDTO);
         return ResponseEntity.ok("User updated successfully");
     }
+
+    @PatchMapping("/{userId}/deactivate")
+    public ResponseEntity<String> deactivateUser(@PathVariable Long userId) {
+        userService.deactivateUser(userId);
+        return ResponseEntity.ok("User deactivated successfully");
+    }
+
+    @PatchMapping("/{userId}/activate")
+    public ResponseEntity<String> activateUser(@PathVariable Long userId) {
+        userService.activateUser(userId);
+        return ResponseEntity.ok("User activated successfully");
+    }
 }

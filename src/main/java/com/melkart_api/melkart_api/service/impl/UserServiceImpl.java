@@ -132,7 +132,7 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-
+// change the status to deactivate
     @Override
     public void delete(Long userId) {
         try {
@@ -151,7 +151,45 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    @Override
+    public void deactivateUser(Long userId) {
+        try {
+            logger.info("Deactivating user with ID: {}", userId);
+            User user = userRepository.findById(userId)
+                    .orElseThrow(() -> new UserNotFoundException("User not found with ID: " + userId));
 
+            user.setStatus(User.Status.DEACTIVATED);
+            userRepository.save(user);
+            logger.info("Successfully deactivated user with ID: {}", userId);
+
+        } catch (UserNotFoundException e) {
+            logger.error("User not found while deactivating: {}", e.getMessage());
+            throw e;
+        } catch (Exception e) {
+            logger.error("Error deactivating user with ID: {}", userId, e);
+            throw new RuntimeException("Failed to deactivate user", e);
+        }
+    }
+
+    @Override
+    public void activateUser(Long userId) {
+        try {
+            logger.info("Activating user with ID: {}", userId);
+            User user = userRepository.findById(userId)
+                    .orElseThrow(() -> new UserNotFoundException("User not found with ID: " + userId));
+
+            user.setStatus(User.Status.ACTIVE);
+            userRepository.save(user);
+            logger.info("Successfully activated user with ID: {}", userId);
+
+        } catch (UserNotFoundException e) {
+            logger.error("User not found while activating: {}", e.getMessage());
+            throw e;
+        } catch (Exception e) {
+            logger.error("Error activating user with ID: {}", userId, e);
+            throw new RuntimeException("Failed to activate user", e);
+        }
+    }
 
 
 }

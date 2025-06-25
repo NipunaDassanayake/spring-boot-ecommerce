@@ -16,6 +16,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    public enum Status {
+        ACTIVE,
+        DEACTIVATED
+    }
+
     private String profilePic;
     private String firstName;
     private String lastName;
@@ -28,4 +33,7 @@ public class User {
 
     private BigDecimal walletBalance = BigDecimal.ZERO;
     private Integer loyaltyPoints = 0;
+
+    @Enumerated(EnumType.STRING)
+    private Status status = Status.ACTIVE; // Default to ACTIVE
 }
