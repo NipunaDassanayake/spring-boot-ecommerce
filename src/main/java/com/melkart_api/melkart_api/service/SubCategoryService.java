@@ -11,5 +11,5 @@ public interface SubCategoryService {
     public SubCategory createSubCategory(SubCategoryCreateRequestDTO subCategoryCreateRequestDTO);
     public List<GetAllSubCategoryDTO> getAllSubCategories();
     void delete(Long id);
-
+    GetAllSubCategoryDTO getSubcategoryById(Long id);
 }

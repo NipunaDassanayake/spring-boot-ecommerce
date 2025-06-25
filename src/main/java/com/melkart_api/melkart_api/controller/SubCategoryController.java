@@ -40,6 +40,11 @@ public class SubCategoryController {
         return ResponseEntity.ok(subCategoryService.getAllSubCategories());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<GetAllSubCategoryDTO> getSubcategoryById(@PathVariable Long id) {
+        GetAllSubCategoryDTO subCategory = subCategoryService.getSubcategoryById(id);
+        return ResponseEntity.ok(subCategory);
+    }
 
 
 }

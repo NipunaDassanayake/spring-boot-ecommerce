@@ -100,6 +100,32 @@ public class SubCategoryServiceImpl implements SubCategoryService {
         }
 
 }
+    @Override
+    public GetAllSubCategoryDTO getSubcategoryById(Long id) {
+        try {
+            log.info("Attempting to fetch subcategory with ID: {}", id);
+
+            SubCategory subCategory = subCategoryRepository.findById(id)
+                    .orElseThrow(() -> {
+                        log.error("SubCategory with ID {} not found", id);
+                        return new ResourceNotFoundException("SubCategory Not Found with ID: " + id);
+                    });
+
+            GetAllSubCategoryDTO dto = new GetAllSubCategoryDTO();
+            dto.setId(subCategory.getId());
+            dto.setName(subCategory.getName());
+
+            log.info("Successfully fetched subcategory with ID: {}", id);
+            return dto;
+
+        } catch (ResourceNotFoundException ex) {
+            log.error("ResourceNotFoundException: {}", ex.getMessage(), ex);
+            throw ex;
+        } catch (Exception ex) {
+            log.error("Unexpected error while fetching subcategory with ID {}: {}", id, ex.getMessage(), ex);
+            throw new RuntimeException("Unexpected error occurred while fetching subcategory", ex);
+        }
+    }
 }
 
 
