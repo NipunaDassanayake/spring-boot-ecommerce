@@ -14,6 +14,7 @@ public interface SystemProductRequestService {
     public List<SystemProductResponseDTO> getAllRequests();
     public GetSystemProductRequestByIdDTO getRequestById(Long id);
     public void deleteRequest(Long id);
+    List<SystemProductResponseDTO> getRequestsByUser(Long userId);
 
 
 

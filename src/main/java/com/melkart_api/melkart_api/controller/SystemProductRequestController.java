@@ -43,5 +43,10 @@ public class SystemProductRequestController {
         requestService.deleteRequest(id);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<SystemProductResponseDTO>> getRequestsByUser(@PathVariable Long userId) {
+        return ResponseEntity.ok(requestService.getRequestsByUser(userId));
+    }
 }
 

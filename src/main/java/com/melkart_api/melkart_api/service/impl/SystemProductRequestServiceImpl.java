@@ -13,6 +13,7 @@ import com.melkart_api.melkart_api.service.SystemProductRequestService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -172,6 +173,55 @@ public class SystemProductRequestServiceImpl implements SystemProductRequestServ
         } catch (Exception e) {
             log.error("Error occurred while deleting system product request with id {}: {}", id, e.getMessage());
             throw e;
+        }
+    }
+
+    @Override
+    public List<SystemProductResponseDTO> getRequestsByUser(Long userId) {
+        try {
+            log.info("Fetching system product requests for user with ID: {}", userId);
+
+            // First verify the user exists
+            User user = userRepository.findById(userId)
+                    .orElseThrow(() -> {
+                        log.error("User not found with ID: {}", userId);
+                        return new EntityNotFoundException("User not found with id: " + userId);
+                    });
+
+            // Get all requests for this user
+            List<SystemProductRequest> requests = requestRepository.findByRequestedBy(user);
+
+            List<SystemProductResponseDTO> responseDTOs = requests.stream()
+                    .map(request -> {
+                        SystemProductResponseDTO dto = new SystemProductResponseDTO();
+                        dto.setId(request.getId());
+                        dto.setExpectedPrice(request.getExpectedPrice());
+                        dto.setSourceCountry(request.getSourceCountry());
+                        dto.setDestinationCountry(request.getDestinationCountry());
+                        dto.setDestinationCity(request.getDestinationCity());
+                        dto.setWithBox(request.getWithBox());
+                        dto.setExpectedDeliveryDate(request.getExpectedDeliveryDate());
+                        dto.setQuantity(request.getQuantity());
+                        dto.setCreatedAt(request.getCreatedAt());
+                        dto.setStatus(request.getStatus());
+                        dto.setProductId(request.getProduct().getId());
+                        dto.setUserId(request.getRequestedBy().getId());
+                        return dto;
+                    })
+                    .collect(Collectors.toList());
+
+            log.info("Found {} system product requests for user with ID: {}", responseDTOs.size(), userId);
+            return responseDTOs;
+
+        } catch (EntityNotFoundException e) {
+            log.error("Entity not found while fetching requests by user: {}", e.getMessage());
+            throw e;
+        } catch (DataAccessException e) {
+            log.error("Database error while fetching requests by user with ID {}: {}", userId, e.getMessage());
+            throw new RuntimeException("Database error while fetching requests by user", e);
+        } catch (Exception e) {
+            log.error("Unexpected error while fetching requests by user with ID {}: {}", userId, e.getMessage());
+            throw new RuntimeException("Unexpected error while fetching requests by user", e);
         }
     }
 }
