@@ -35,4 +35,11 @@ public class NewProductRequestController {
     public NewProductRequest getProductRequestById(@PathVariable Long id){
         return newProductRequestService.getProductRequestById(id);
     }
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<GetAllNewProductResponseDTO>> getProductRequestByUser(@PathVariable Long userId) {
+        List<GetAllNewProductResponseDTO> requests = newProductRequestService.getProductRequestByUser(userId);
+        return ResponseEntity.ok(requests);
+    }
+
 }

@@ -9,4 +9,5 @@ public interface NewProductRequestService {
     NewProductRequest createRequest(NewProductRequestDTO newProductRequestDTO);
     public List<GetAllNewProductResponseDTO> getAllNewProducts() ;
     public NewProductRequest getProductRequestById(Long id);
+    List<GetAllNewProductResponseDTO> getProductRequestByUser(Long userId);
 }

@@ -125,6 +125,55 @@ public class NewProductRequestServiceImpl implements NewProductRequestService {
         }
     }
 
+    @Override
+    public List<GetAllNewProductResponseDTO> getProductRequestByUser(Long userId) {
+        logger.info("Fetching product requests for user with ID: {}", userId);
+
+        try {
+            // First verify the user exists
+            User user = userRepository.findById(userId)
+                    .orElseThrow(() -> {
+                        logger.error("User not found with ID: {}", userId);
+                        return new EntityNotFoundException("User not found with id: " + userId);
+                    });
+
+            // Get all requests for this user
+            List<NewProductRequest> requests = newProductRequestRepository.findByRequestedBy(user);
+
+            return requests.stream()
+                    .map(request -> {
+                        GetAllNewProductResponseDTO responseDTO = new GetAllNewProductResponseDTO();
+                        responseDTO.setId(request.getId());
+                        responseDTO.setName(request.getName());
+                        responseDTO.setDescription(request.getDescription());
+                        responseDTO.setExpectedPrice(request.getExpectedPrice());
+                        responseDTO.setCurrency(request.getCurrency());
+                        responseDTO.setSourceCountry(request.getSourceCountry());
+                        responseDTO.setDestinationCountry(request.getDestinationCountry());
+                        responseDTO.setDestinationCity(request.getDestinationCity());
+                        responseDTO.setWebsiteUrl(request.getWebsiteUrl());
+                        responseDTO.setQuantity(request.getQuantity());
+                        responseDTO.setWithBox(request.getWithBox());
+                        responseDTO.setCreatedAt(request.getCreatedAt());
+                        responseDTO.setExpectedDeliveryDate(request.getExpectedDeliveryDate());
+                        responseDTO.setStatus(request.getStatus());
+                        responseDTO.setUserId(request.getRequestedBy().getId());
+
+                        return responseDTO;
+                    })
+                    .collect(Collectors.toList());
+
+        } catch (DataAccessException e) {
+            logger.error("Database error while fetching product requests for user ID: {}", userId, e);
+            throw new RuntimeException("Database error while fetching product requests", e);
+        } catch (EntityNotFoundException e) {
+            logger.error("User not found while fetching product requests: {}", e.getMessage());
+            throw e; // Re-throw the EntityNotFoundException
+        } catch (Exception e) {
+            logger.error("Unexpected error while fetching product requests for user ID: {}", userId, e);
+            throw new RuntimeException("Unexpected error while fetching product requests", e);
+        }
+    }
 
 
 }
