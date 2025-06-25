@@ -27,4 +27,17 @@ public class ProductController {
     public List<ProductResponseDTO> getAllProducts(){
         return productService.getAllProducts();
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ProductResponseDTO> getProductById(@PathVariable Long id) {
+        ProductResponseDTO product = productService.getProductById(id);
+        return ResponseEntity.ok(product);
+    }
+
+    @GetMapping("/subcategory/{subCategoryId}")
+    public ResponseEntity<List<ProductResponseDTO>> getProductsBySubcategory(@PathVariable Long subCategoryId) {
+        List<ProductResponseDTO> products = productService.getProductsBySubcategory(subCategoryId);
+        return ResponseEntity.ok(products);
+    }
+
 }

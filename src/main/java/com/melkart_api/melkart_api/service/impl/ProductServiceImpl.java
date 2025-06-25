@@ -170,4 +170,71 @@ public class ProductServiceImpl implements ProductService {
             throw new RuntimeException("Unexpected error occurred while deleting product", e);
         }
     }
+
+    @Override
+    public ProductResponseDTO getProductById(Long id) {
+        try {
+            Product product = productRepository.findById(id)
+                    .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
+
+            ProductResponseDTO responseDTO = new ProductResponseDTO();
+            responseDTO.setName(product.getName());
+            responseDTO.setCategory(product.getCategory());
+            responseDTO.setBrand(product.getBrand());
+            responseDTO.setModel(product.getModel());
+            responseDTO.setDescription(product.getDescription());
+            responseDTO.setPrice(product.getPrice());
+            responseDTO.setCurrency(product.getCurrency());
+            responseDTO.setWebsiteUrl(product.getWebsiteUrl());
+            responseDTO.setImageUrls(product.getImageUrls());
+            responseDTO.setSourceCountry(product.getSourceCountry());
+            responseDTO.setStatus(product.getStatus());
+            responseDTO.setSubCategoryName(product.getSubCategory().getName());
+
+            return responseDTO;
+
+        } catch (DataAccessException e) {
+            logger.error("Failed to retrieve product with id {} due to database error: {}", id, e.getMessage(), e);
+            throw new RuntimeException("Failed to retrieve product due to database error", e);
+        } catch (Exception e) {
+            logger.error("Unexpected error occurred while retrieving product with id {}: {}", id, e.getMessage(), e);
+            throw new RuntimeException("Unexpected error occurred while retrieving product", e);
+        }
+    }
+
+    @Override
+    public List<ProductResponseDTO> getProductsBySubcategory(Long subCategoryId) {
+        try {
+            SubCategory subCategory = subCategoryRepository.findById(subCategoryId)
+                    .orElseThrow(() -> new RuntimeException("SubCategory not found with id: " + subCategoryId));
+
+            List<Product> products = productRepository.findBySubCategory(subCategory);
+
+            return products.stream()
+                    .map(product -> {
+                        ProductResponseDTO responseDTO = new ProductResponseDTO();
+                        responseDTO.setName(product.getName());
+                        responseDTO.setCategory(product.getCategory());
+                        responseDTO.setBrand(product.getBrand());
+                        responseDTO.setModel(product.getModel());
+                        responseDTO.setDescription(product.getDescription());
+                        responseDTO.setPrice(product.getPrice());
+                        responseDTO.setCurrency(product.getCurrency());
+                        responseDTO.setWebsiteUrl(product.getWebsiteUrl());
+                        responseDTO.setImageUrls(product.getImageUrls());
+                        responseDTO.setSourceCountry(product.getSourceCountry());
+                        responseDTO.setStatus(product.getStatus());
+                        responseDTO.setSubCategoryName(product.getSubCategory().getName());
+                        return responseDTO;
+                    })
+                    .collect(Collectors.toList());
+
+        } catch (DataAccessException e) {
+            logger.error("Failed to retrieve products by subcategory {} due to database error: {}", subCategoryId, e.getMessage(), e);
+            throw new RuntimeException("Failed to retrieve products by subcategory due to database error", e);
+        } catch (Exception e) {
+            logger.error("Unexpected error occurred while retrieving products by subcategory {}: {}", subCategoryId, e.getMessage(), e);
+            throw new RuntimeException("Unexpected error occurred while retrieving products by subcategory", e);
+        }
+    }
 }
