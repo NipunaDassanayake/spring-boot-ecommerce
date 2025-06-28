@@ -19,6 +19,10 @@ public class ProductController {
 
     @PostMapping
     public ResponseEntity<Product> createProduct(@ModelAttribute ProductCreateRequestDTO productCreateRequestDTO) {
+        System.out.println(productCreateRequestDTO.getName());
+        System.out.println(productCreateRequestDTO.getAdminId());
+        System.out.println(productCreateRequestDTO.getBrand());
+        System.out.println(productCreateRequestDTO.getCategory());
         Product createdProduct = productService.createProduct(productCreateRequestDTO);
         return ResponseEntity.ok(createdProduct);
     }
