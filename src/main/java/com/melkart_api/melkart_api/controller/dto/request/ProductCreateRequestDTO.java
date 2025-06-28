@@ -10,26 +10,20 @@ import java.util.List;
 
 @Data
 public class ProductCreateRequestDTO {
-    @NotNull
-    @NotEmpty
+
     private String name;
 
-    @NotNull
+
     private String category;
 
-    @NotNull
     private String brand;
 
-    @NotNull
     private String model;
 
-    @NotNull
     private String description;
 
-    @NotNull
     private Double price;
 
-    @NotNull
     private String currency;
 
     private String websiteUrl;
